@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Public\\PersonalBlogRecipe\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\pages\\createeditpost.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\pages\\createeditpost.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\pages\\postslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\pages\\postslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\pages\\postdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\pages\\postdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\share\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\share\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|c:\\users\\public\\personalblogrecipe\\client\\share\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D4C7C5C6-F561-4089-8D49-368F15BABF11}|Client\\Client.csproj|solutionrelative:client\\share\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PostDetails.razor",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\PostDetails.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\PostDetails.razor",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\PostDetails.razor",
+              "RelativeToolTip": "Client\\Pages\\PostDetails.razor",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAGAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T13:35:43.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateEditPost.razor",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\CreateEditPost.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\CreateEditPost.razor",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\CreateEditPost.razor",
+              "RelativeToolTip": "Client\\Pages\\CreateEditPost.razor",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T13:34:16.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PostsList.razor",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\PostsList.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\PostsList.razor",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\PostsList.razor",
+              "RelativeToolTip": "Client\\Pages\\PostsList.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T13:32:45.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "Client\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "Client\\wwwroot\\css\\app.css",
+              "ViewState": "AgIAAKcBAAAAAAAAAAAAALYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-10-22T13:29:54.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\share\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Client\\share\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\share\\NavMenu.razor",
+              "RelativeToolTip": "Client\\share\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T13:28:11.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\share\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Client\\share\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\share\\MainLayout.razor",
+              "RelativeToolTip": "Client\\share\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T13:24:11.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "Client\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\Public\\PersonalBlogRecipe\\Client\\Pages\\Index.razor",
+              "RelativeToolTip": "Client\\Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T09:29:02.131Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

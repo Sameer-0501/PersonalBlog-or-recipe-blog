@@ -1,0 +1,113 @@
+@using Shared.Models
+@inject Client.Services.PostService PostService
+@inject NavigationManager NavManager
+
+<!-- The <h1> for this page is in Index.razor -->
+<!-- Updated button class to use the new primary style -->
+<div style="margin-bottom: 1.5rem;">
+    <button class="btn btn-primary" @onclick="CreateNew">
+        <!-- Added an icon to the button -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span>Create New Post</span>
+    </button>
+</div>
+
+
+@if (posts == null)
+{
+    <p>Loading...</p>
+}
+else if (!posts.Any())
+{
+    <p>No posts yet. Create your first post!</p>
+}
+else
+{
+    <!-- Use the new responsive posts-grid class from app.css -->
+    <div class="posts-grid">
+        @foreach (var p in posts)
+        {
+            <!-- Use the new post-card class -->
+            <div class="post-card">
+                @if (!string.IsNullOrEmpty(p.ImageUrl))
+                {
+                    <!-- Use the new post-card-image class -->
+                    <img src="@p.ImageUrl" alt="@p.Title" class="post-card-image" />
+                }
+                else
+                {
+                    <!-- Use the new post-card-placeholder class -->
+                    <div class="post-card-placeholder">🍽️</div>
+                }
+
+                <!-- Use the new post-card-body class -->
+                <div class="post-card-body">
+                    <!-- Use the new post-card-category class -->
+                    <div class="post-card-category">@p.Category</div>
+
+                    <!-- Use the new post-card-title class -->
+                    <h3 class="post-card-title">@p.Title</h3>
+
+                    <!-- Use the new post-card-excerpt class -->
+                    <p class="post-card-excerpt">@p.Excerpt</p>
+
+                    <!-- Use the new post-card-meta class -->
+                    <div class="post-card-meta">Published on @p.PublishedOn.ToLocalTime().ToString("yyyy-MM-dd")</div>
+
+                    <!-- Use the new post-card-actions class -->
+                    <div class="post-card-actions">
+                        <!-- Updated button classes to use new sm and color styles -->
+                        <button class="btn btn-sm btn-primary" @onclick="() => ViewPost(p.Id)">View</button>
+                        <button class="btn btn-sm btn-secondary" @onclick="() => EditPost(p.Id)">Edit</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => ConfirmDelete(p.Id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    List<Post>? posts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    async Task Load()
+    {
+        posts = await PostService.GetAllAsync();
+    }
+
+    void CreateNew()
+    {
+        NavManager.NavigateTo("blog/create");
+    }
+
+    void ViewPost(int id)
+    {
+        NavManager.NavigateTo($"blog/{id}");
+    }
+
+    void EditPost(int id)
+    {
+        NavManager.NavigateTo($"blog/edit/{id}");
+    }
+
+    async Task ConfirmDelete(int id)
+    {
+        // This JSConfirm will now be blocked by browsers.
+        // We should replace this with a modal, but for now, we'll leave the logic.
+        if (await JSConfirm($"Are you sure you want to delete post #{id}?"))
+        {
+            var ok = await PostService.DeleteAsync(id);
+            if (ok) await Load();
+        }
+    }
+
+    // small interop for confirmation
+    [Inject] IJSRuntime JS { get; set; } = default!;
+    private async Task<bool> JSConfirm(string message)
+        => await JS.InvokeAsync<bool>("confirm", message);
+}

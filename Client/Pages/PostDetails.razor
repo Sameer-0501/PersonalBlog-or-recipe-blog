@@ -1,0 +1,128 @@
+@page "/blog/{Id:int}"
+@inject Client.Services.PostService PostService
+@inject NavigationManager NavManager
+@using Shared.Models
+
+<!--
+    This file is updated to use the new styles from app.css
+    and a local <style> block for the 2-column layout.
+-->
+@if (post == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <!-- Use new header class from app.css -->
+    <div class="post-details-header">
+        <h1>@post.Title</h1>
+
+        <!-- Use new category/meta classes from app.css -->
+        <div class="post-details-meta">
+            <span class="post-details-category">@post.Category</span>
+            <span>Published on @post.PublishedOn.ToLocalTime().ToString("MMMM dd, yyyy")</span>
+        </div>
+    </div>
+
+    <!-- This is the new 2-column layout -->
+    <div class="post-layout">
+        <!-- Left Column: Content -->
+        <div class="post-layout-content">
+            <!-- Use new content class from app.css -->
+            <div class="post-details-content">
+                @((MarkupString)post.Content)
+            </div>
+        </div>
+
+        <!-- Right Column: Image (if it exists) -->
+        @if (!string.IsNullOrEmpty(post.ImageUrl))
+        {
+            <div class="post-layout-image">
+                <img src="@post.ImageUrl" alt="@post.Title" />
+            </div>
+        }
+    </div>
+
+
+    <!-- Use new actions class from app.css -->
+    <div class="post-details-actions">
+        <!-- Updated button styles -->
+        <button class="btn btn-secondary" @onclick="Back">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: text-bottom;">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Blog</span>
+        </button>
+        <button class="btn btn-secondary" @onclick="() => Edit(post.Id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: text-bottom;">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            <span>Edit Post</span>
+        </button>
+    </div>
+}
+
+<!--
+    This style block is local to this component.
+    It controls the 2-column layout.
+-->
+<style>
+    .post-layout {
+        display: flex;
+        gap: 2.5rem;
+        flex-wrap: wrap; /* Allow wrapping */
+    }
+
+    .post-layout-content {
+        flex: 2; /* Takes ~2/3 of the space */
+        min-width: 300px; /* Ensures content has space */
+    }
+
+    .post-layout-image {
+        flex: 1; /* Takes ~1/3 of the space */
+        min-width: 250px;
+    }
+
+        .post-layout-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+    /* On smaller screens, stack them */
+     (max-width: 992px) {
+        .post-layout
+
+    {
+        /* Stack image on top, then content */
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+
+    .post-layout-content {
+        flex-basis: auto; /* Reset flex-basis */
+    }
+
+    .post-layout-image {
+        flex-basis: auto; /* Reset flex-basis */
+    }
+
+    }
+</style>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    Post? post;
+
+    protected override async Task OnInitializedAsync()
+    {
+        post = await PostService.GetByIdAsync(Id);
+    }
+
+    void Back() => NavManager.NavigateTo("blog");
+    void Edit(int id) => NavManager.NavigateTo($"blog/edit/{id}");
+}

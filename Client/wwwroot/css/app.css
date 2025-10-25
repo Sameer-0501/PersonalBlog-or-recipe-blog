@@ -1,0 +1,516 @@
+/* --- 1. Global & Typography --- */
+
+html, body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #374151; /* Default dark grey text */
+    background-color: #f3f4f6; /* Set global background, matching MainLayout */
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #111827; /* Darker text for headings */
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+code {
+    color: #c02d76;
+}
+
+
+/* --- 2. Button Styles --- */
+
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none !important; /* Override 'a' underline */
+}
+
+    .btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4); /* Blue focus ring */
+    }
+
+    /* Primary blue button */
+    .btn.btn-primary {
+        background-color: #2563eb;
+        color: #ffffff;
+        border-color: #2563eb;
+    }
+
+        .btn.btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+    /* Secondary/Cancel button */
+    .btn.btn-secondary {
+        background-color: #ffffff;
+        color: #374151;
+        border-color: #d1d5db; /* Light grey border */
+    }
+
+        .btn.btn-secondary:hover {
+            background-color: #f9fafb; /* Slight grey on hover */
+            border-color: #a0aec0;
+        }
+
+    /* Danger/Delete button */
+    .btn.btn-danger {
+        background-color: #dc2626;
+        color: #ffffff;
+        border-color: #dc2626;
+    }
+
+        .btn.btn-danger:hover {
+            background-color: #b91c1c;
+            border-color: #b91c1c;
+        }
+
+    /* Small button variant (for card actions) */
+    .btn.btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+
+    /* Link-style button */
+    .btn.btn-link {
+        background: transparent;
+        border-color: transparent;
+        color: #2563eb;
+        padding: 0;
+    }
+
+        .btn.btn-link:hover {
+            text-decoration: underline !important;
+        }
+
+
+/* --- 3. Form Styles --- */
+
+.form-row {
+    margin-bottom: 1.25rem;
+}
+
+    .form-row label {
+        display: block;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+/* Style for InputText, InputTextArea, InputNumber */
+.input,
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #1f2937;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #d1d5db; /* Light grey border */
+    border-radius: 6px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .input:focus,
+    .form-control:focus {
+        color: #1f2937;
+        background-color: #ffffff;
+        border-color: #2563eb; /* Blue border on focus */
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); /* Blue glow */
+    }
+
+/* Updated Blazor validation styles */
+.valid.modified:not([type=checkbox]) {
+    border-color: #16a34a; /* Green border */
+    outline: 0;
+}
+
+.invalid {
+    border-color: #dc2626; /* Red border */
+    outline: 0;
+}
+
+    .invalid:focus {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2); /* Red glow */
+    }
+
+.validation-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+
+/* --- 4. Card Styles (for PostsList) --- */
+
+.posts-grid {
+    display: grid;
+    /* Responsive grid: 1 col on small, 2 on medium, 3 on large */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* Media queries for responsive grid */
+@media (min-width: 768px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .posts-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.post-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden; /* To clip the image corners */
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+    .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+.post-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.post-card-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #9ca3af;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.post-card-body {
+    padding: 1.25rem;
+    flex-grow: 1; /* Ensures footer stays at the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    background-color: #dbeafe;
+    padding: 0.25rem 0.6rem;
+    border-radius: 99px; /* Pill shape */
+    margin-bottom: 0.75rem;
+    align-self: flex-start; /* Don't stretch */
+}
+
+.post-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+    /* Truncate long titles */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-card-excerpt {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    line-height: 1.5;
+    /* Truncate long excerpts */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-card-meta {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+.post-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto; /* Push to bottom of card */
+    padding-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+
+/* --- 5. Post Details Page Styles --- */
+
+.post-details-header {
+    margin-bottom: 1rem;
+}
+
+.post-details-category {
+    /* Re-use card category style */
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    background-color: #dbeafe;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.post-details-meta {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.post-details-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.post-details-content {
+    /* Styles for the rendered HTML content */
+    line-height: 1.7;
+    color: #374151;
+}
+
+    .post-details-content p {
+        margin-bottom: 1.25rem;
+    }
+
+    .post-details-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 1rem 0;
+    }
+
+.post-details-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+
+/* --- 6. Hero Section Styles --- */
+
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-content {
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-quote {
+    font-style: italic;
+    margin: 1.5rem 0;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.hero-quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.hero-cta {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+        min-height: 50vh;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* --- 7. Blazor Functional Styles (Kept from original) --- */
+
+#blazor-error-ui {
+    color-scheme: light only;
+    background: #fffffe; /* Changed to light background */
+    color: #b91c1c; /* Red text */
+    border-top: 1px solid #e5e7eb;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+        color: #6b7280;
+    }
+
+.blazor-error-boundary {
+    background: #fffbeb; /* Light yellow background */
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: #92400e; /* Dark yellow/brown text */
+    border: 1px solid #fde68a;
+    border-radius: 6px;
+}
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred."
+    }
+
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
+}
+
+    .loading-progress circle {
+        fill: none;
+        stroke: #e0e0e0;
+        stroke-width: 0.6rem;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
+    }
+
+        .loading-progress circle:last-child {
+            stroke: #2563eb; /* Use new primary blue */
+            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+            transition: stroke-dasharray 0.05s ease-in-out;
+        }
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    color: #6b7280;
+}
+
+    .loading-progress-text:after {
+        content: var(--blazor-load-percentage-text, "Loading");
+    }

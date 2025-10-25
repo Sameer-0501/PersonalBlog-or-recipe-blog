@@ -1,0 +1,6 @@
+C:\Users\Public\PersonalBlogRecipe\Client\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Public\PersonalBlogRecipe\Client\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Public\PersonalBlogRecipe\Client\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Public\PersonalBlogRecipe\Client\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Public\PersonalBlogRecipe\Client\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\Public\PersonalBlogRecipe\Client\obj\Debug\net9.0\staticwebassets.build.json

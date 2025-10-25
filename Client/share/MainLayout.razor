@@ -1,0 +1,62 @@
+@inherits LayoutComponentBase
+
+<div class="app-wrapper">
+    <nav class="side-menu">
+        <div class="brand">PersonalBlog</div>
+        <Client.share.NavMenu />
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            @Body
+        </div>
+    </main>
+</div>
+
+<style>
+    /* Global styles for the new design */
+    html, body {
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        background: #f3f4f6; /* Light grey background for the whole page */
+        margin: 0;
+        padding: 0;
+    }
+
+    .app-wrapper {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    .side-menu {
+        width: 220px;
+        flex-shrink: 0;
+        /* New gradient and text color to match the design */
+        background: linear-gradient(180deg, #3b1a4b, #12253a);
+        color: #dbeafe; /* Light text color for all sidebar content */
+        padding: 24px;
+    }
+
+    .brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: #ffffff; /* White brand text */
+    }
+
+    .main-content {
+        flex: 1;
+        padding: 32px;
+        background: #f3f4f6; /* Light grey background for the content area */
+        overflow-y: auto; /* Allow content to scroll if it's long */
+    }
+
+    .container {
+        /* This is now the white content "card" */
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 32px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+</style>
